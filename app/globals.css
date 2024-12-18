@@ -1,0 +1,204 @@
+/* styles/globals.css */
+
+/* Reset de estilos padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+}
+
+/* Container principal com a imagem de fundo */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/flor.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Sobreposição escura para destacar o conteúdo */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+}
+
+/* Container de conteúdo */
+.content {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  animation: zoomIn 0.5s ease-out forwards;
+}
+
+/* Tamanho e estilo da pergunta */
+.question {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.yes-button {
+  padding: 14px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.yes-button:hover {
+  transform: scale(1.1);
+  background-color: #218838;
+}
+
+.no-button {
+  position: absolute;
+  padding: 14px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: default;
+  /* Não permite clique */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.no-button:hover {
+  transform: scale(1.1);
+  /* Efeito de crescimento */
+  background-color: #c82333;
+}
+
+/* Animação de zoom do container */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Quando a segunda questão for exibida */
+.response {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.response-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4081;
+  animation: pulse 1.5s infinite;
+  margin-bottom: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Círculos saltitantes */
+.bouncing-circles {
+  display: flex;
+  gap: 18px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.pink-1 {
+  background-color: #e91e63;
+  animation-delay: 0s;
+}
+
+.pink-2 {
+  background-color: #f50057;
+  animation-delay: 0.15s;
+}
+
+.pink-3 {
+  background-color: #d81b60;
+  animation-delay: 0.3s;
+}
+
+.love-message {
+  animation: fadeIn 2s ease-in-out;
+  text-align: center;
+  font-size: 2rem;
+  color: pink;
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
